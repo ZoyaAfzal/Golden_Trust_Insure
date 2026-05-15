@@ -11,9 +11,16 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About Golden Trust Insure — 25 Years of Independent Insurance" },
-      { name: "description", content: "Meet the independent broker team who has protected 15,000+ families since 2001 with honest advice and lifelong service." },
+      {
+        name: "description",
+        content:
+          "Meet the independent broker team who has protected 15,000+ families since 2001 with honest advice and lifelong service.",
+      },
       { property: "og:title", content: "About Golden Trust Insure" },
-      { property: "og:description", content: "25 years of independent, family-first insurance brokerage." },
+      {
+        property: "og:description",
+        content: "25 years of independent, family-first insurance brokerage.",
+      },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -21,9 +28,21 @@ export const Route = createFileRoute("/about")({
 });
 
 const values = [
-  { icon: Shield, title: "Independence", desc: "We work for you, never the carrier. Every recommendation is shopped across our full panel." },
-  { icon: Heart, title: "Stewardship", desc: "Your policy isn't a transaction — it's a relationship that we tend to for the long haul." },
-  { icon: Award, title: "Clarity", desc: "Plain English explanations, transparent commissions, and no surprises at renewal." },
+  {
+    icon: Shield,
+    title: "Independence",
+    desc: "We work for you, never the carrier. Every recommendation is shopped across our full panel.",
+  },
+  {
+    icon: Heart,
+    title: "Stewardship",
+    desc: "Your policy isn't a transaction — it's a relationship that we tend to for the long haul.",
+  },
+  {
+    icon: Award,
+    title: "Clarity",
+    desc: "Plain English explanations, transparent commissions, and no surprises at renewal.",
+  },
 ];
 
 const milestones = [
@@ -41,12 +60,20 @@ function AboutPage() {
         <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-accent/10 blur-3xl" />
         <div className="container-x relative grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-accent mb-4">About {BRAND.name}</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
+              About {BRAND.name}
+            </p>
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">
-              Twenty-five years of <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>quiet</em> protection.
+              Twenty-five years of{" "}
+              <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+                quiet
+              </em>{" "}
+              protection.
             </h1>
             <p className="mt-6 text-background/75 text-lg max-w-xl">
-              We started with a simple idea: insurance should be sold by people who answer to clients, not quotas. Three agents and a borrowed conference room later, that idea has carried us across the country.
+              We started with a simple idea: insurance should be sold by people who answer to
+              clients, not quotas. Three agents and a borrowed conference room later, that idea has
+              carried us across the country.
             </p>
           </div>
           <motion.div
@@ -66,15 +93,20 @@ function AboutPage() {
           <p className="text-xs uppercase tracking-[0.2em] text-accent">Our story</p>
           <div>
             <p className="font-heading text-2xl md:text-3xl leading-snug text-foreground">
-              "The day a client calls you in a crisis is the day you discover what your business is actually for. After 25 years, we still answer every one of those calls personally."
+              "The day a client calls you in a crisis is the day you discover what your business is
+              actually for. After 25 years, we still answer every one of those calls personally."
             </p>
             <p className="mt-6 text-sm text-muted-foreground">— Eleanor Voss, Founder & CEO</p>
             <div className="mt-10 space-y-5 text-base text-muted-foreground leading-relaxed">
               <p>
-                {BRAND.name} was founded in 2001 to give families and small businesses a real alternative to captive carriers. Independent from day one, we've grown deliberately — adding only as many clients as we could serve well.
+                {BRAND.name} was founded in 2001 to give families and small businesses a real
+                alternative to captive carriers. Independent from day one, we've grown deliberately
+                — adding only as many clients as we could serve well.
               </p>
               <p>
-                Today we represent over forty A-rated carriers, but the way we work has not changed: a single dedicated advisor for every household, a real human on the phone for every claim, and an annual coverage review that respects how your life evolves.
+                Today we represent over forty A-rated carriers, but the way we work has not changed:
+                a single dedicated advisor for every household, a real human on the phone for every
+                claim, and an annual coverage review that respects how your life evolves.
               </p>
             </div>
           </div>
@@ -86,7 +118,14 @@ function AboutPage() {
         <div className="container-x">
           <SectionHeading
             eyebrow="What we stand for"
-            title={<>Three principles, <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>no exceptions.</em></>}
+            title={
+              <>
+                Three principles,{" "}
+                <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+                  no exceptions.
+                </em>
+              </>
+            }
           />
           <div className="mt-16 grid gap-6 md:grid-cols-3">
             {values.map((v, i) => (
@@ -114,7 +153,15 @@ function AboutPage() {
         <div className="container-x">
           <SectionHeading
             eyebrow="Meet the team"
-            title={<>The people <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>behind</em> your policy</>}
+            title={
+              <>
+                The people{" "}
+                <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+                  behind
+                </em>{" "}
+                your policy
+              </>
+            }
           />
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((m, i) => (
@@ -148,7 +195,14 @@ function AboutPage() {
         <div className="container-x max-w-4xl">
           <SectionHeading
             eyebrow="Our journey"
-            title={<>Twenty-five years, <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>one promise.</em></>}
+            title={
+              <>
+                Twenty-five years,{" "}
+                <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+                  one promise.
+                </em>
+              </>
+            }
           />
           <div className="mt-16 relative">
             <div className="absolute left-4 md:left-1/2 top-2 bottom-2 w-px bg-border" />
@@ -173,7 +227,11 @@ function AboutPage() {
             </div>
           </div>
           <div className="mt-16 text-center">
-            <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary-mid px-7 h-12">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-primary text-primary-foreground hover:bg-primary-mid px-7 h-12"
+            >
               <Link to="/contact">Talk to an advisor →</Link>
             </Button>
           </div>

@@ -16,10 +16,23 @@ export function BlogSection() {
           <SectionHeading
             align="left"
             eyebrow="Latest Insights"
-            title={<>The fine print, <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>translated.</em></>}
+            title={
+              <>
+                The fine print,{" "}
+                <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+                  translated.
+                </em>
+              </>
+            }
           />
-          <Button asChild variant="outline" className="rounded-full border-primary/20 hover:border-accent hover:text-accent w-fit">
-            <Link to="/blog">View all articles <ArrowRight className="ml-2 h-4 w-4" /></Link>
+          <Button
+            asChild
+            variant="outline"
+            className="rounded-full border-primary/20 hover:border-accent hover:text-accent w-fit"
+          >
+            <Link to="/blog">
+              View all articles <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
 
@@ -35,9 +48,9 @@ export function BlogSection() {
             >
               <Link to="/blog/$slug" params={{ slug: p.slug }} className="block">
                 <div className="aspect-[16/10] overflow-hidden relative">
-                  <img 
-                    src={p.image} 
-                    alt={p.title} 
+                  <img
+                    src={p.image}
+                    alt={p.title}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
@@ -61,9 +74,9 @@ export function BlogSection() {
                 </p>
                 <div className="mt-5 pt-5 border-t border-border flex items-center justify-between">
                   <span className="text-xs text-muted-foreground">By {p.author}</span>
-                  <Link 
-                    to="/blog/$slug" 
-                    params={{ slug: p.slug }} 
+                  <Link
+                    to="/blog/$slug"
+                    params={{ slug: p.slug }}
                     className="text-xs font-bold text-accent flex items-center gap-1 hover:underline"
                   >
                     Read more <ArrowUpRight className="h-3 w-3" />

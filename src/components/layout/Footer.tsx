@@ -24,7 +24,10 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm text-background/70">
               {navItems.map((n) => (
                 <li key={n.to}>
-                  <Link to={n.to} className="hover:text-accent transition-colors hover:translate-x-0.5 inline-block">
+                  <Link
+                    to={n.to}
+                    className="hover:text-accent transition-colors hover:translate-x-0.5 inline-block"
+                  >
                     {n.label}
                   </Link>
                 </li>
@@ -37,7 +40,11 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm text-background/70">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link to="/services/$slug" params={{ slug: s.slug }} className="hover:text-accent transition-colors hover:translate-x-0.5 inline-block">
+                  <Link
+                    to="/services/$slug"
+                    params={{ slug: s.slug }}
+                    className="hover:text-accent transition-colors hover:translate-x-0.5 inline-block"
+                  >
                     {s.title}
                   </Link>
                 </li>
@@ -48,9 +55,18 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-base mb-4">Contact</h4>
             <ul className="space-y-3 text-sm text-background/70">
-              <li className="flex gap-2.5"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-accent" />{BRAND.address}</li>
-              <li className="flex gap-2.5"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-accent" />{BRAND.phone}</li>
-              <li className="flex gap-2.5"><Mail className="h-4 w-4 mt-0.5 shrink-0 text-accent" />{BRAND.email}</li>
+              <li className="flex gap-2.5">
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-accent" />
+                {BRAND.address}
+              </li>
+              <li className="flex gap-2.5">
+                <Phone className="h-4 w-4 mt-0.5 shrink-0 text-accent" />
+                {BRAND.phone}
+              </li>
+              <li className="flex gap-2.5">
+                <Mail className="h-4 w-4 mt-0.5 shrink-0 text-accent" />
+                {BRAND.email}
+              </li>
             </ul>
           </div>
         </div>
@@ -58,10 +74,10 @@ export function Footer() {
         <div className="mt-14 pt-8 border-t border-background/15 flex justify-end text-xs text-background/60">
           <p>
             Powered by{" "}
-            <a 
-              href="https://axistechgroup.com/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://axistechgroup.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-accent transition-colors font-medium"
             >
               AxisTechGroup

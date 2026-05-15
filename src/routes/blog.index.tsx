@@ -11,9 +11,16 @@ export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Insurance Insights & Guides — Golden Trust Insure Blog" },
-      { name: "description", content: "Plain-English guides, news, and tips from independent insurance brokers — published monthly." },
+      {
+        name: "description",
+        content:
+          "Plain-English guides, news, and tips from independent insurance brokers — published monthly.",
+      },
       { property: "og:title", content: "Golden Trust Insure Blog" },
-      { property: "og:description", content: "Insurance insights, guides, and news from our advisors." },
+      {
+        property: "og:description",
+        content: "Insurance insights, guides, and news from our advisors.",
+      },
       { property: "og:url", content: "/blog" },
     ],
     links: [{ rel: "canonical", href: "/blog" }],
@@ -23,7 +30,7 @@ export const Route = createFileRoute("/blog/")({
 const cats = ["All", "Insurance Tips", "News", "Guides"] as const;
 
 function BlogPage() {
-  const [cat, setCat] = useState<typeof cats[number]>("All");
+  const [cat, setCat] = useState<(typeof cats)[number]>("All");
   const visible = blogPosts.filter((p) => cat === "All" || p.category === cat);
 
   return (
@@ -32,10 +39,14 @@ function BlogPage() {
         <div className="container-x">
           <p className="text-xs uppercase tracking-[0.2em] text-accent mb-4">Insights</p>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.05] max-w-3xl">
-            The fine print, <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>translated.</em>
+            The fine print,{" "}
+            <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+              translated.
+            </em>
           </h1>
           <p className="mt-6 text-background/75 max-w-2xl text-lg">
-            Practical guides and industry news from advisors who'd rather you understood your policy than just paid for it.
+            Practical guides and industry news from advisors who'd rather you understood your policy
+            than just paid for it.
           </p>
         </div>
       </section>
@@ -69,16 +80,18 @@ function BlogPage() {
                 className="group rounded-2xl bg-card border border-border overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all"
               >
                 <div className="aspect-[5/3] overflow-hidden relative">
-                  <img 
-                    src={p.image} 
-                    alt={p.title} 
+                  <img
+                    src={p.image}
+                    alt={p.title}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                    <span className="text-accent uppercase tracking-wider font-medium">{p.category}</span>
+                    <span className="text-accent uppercase tracking-wider font-medium">
+                      {p.category}
+                    </span>
                     <span>·</span>
                     <span>{p.date}</span>
                   </div>
@@ -88,9 +101,9 @@ function BlogPage() {
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.excerpt}</p>
                   <div className="mt-5 flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">By {p.author}</span>
-                    <Link 
-                      to="/blog/$slug" 
-                      params={{ slug: p.slug }} 
+                    <Link
+                      to="/blog/$slug"
+                      params={{ slug: p.slug }}
                       className="inline-flex items-center gap-1 text-accent font-medium hover:underline"
                     >
                       Read more <ArrowUpRight className="h-3.5 w-3.5" />

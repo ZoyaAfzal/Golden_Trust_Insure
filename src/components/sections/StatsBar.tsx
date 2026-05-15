@@ -16,7 +16,9 @@ export function StatsBar() {
             <p className="font-heading text-4xl lg:text-5xl text-accent">
               <AnimatedCounter to={s.value} suffix={s.suffix} />
             </p>
-            <p className="mt-2 text-xs lg:text-sm uppercase tracking-[0.18em] text-background/75">{s.label}</p>
+            <p className="mt-2 text-xs lg:text-sm uppercase tracking-[0.18em] text-background/75">
+              {s.label}
+            </p>
           </div>
         ))}
       </div>

@@ -9,7 +9,14 @@ export function Testimonials() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Client stories"
-          title={<>What our clients <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>say</em></>}
+          title={
+            <>
+              What our clients{" "}
+              <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+                say
+              </em>
+            </>
+          }
         />
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {testimonials.map((t, i) => (
@@ -26,7 +33,9 @@ export function Testimonials() {
                   <Star key={j} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              <p className="font-heading text-lg leading-snug text-foreground flex-1">"{t.quote}"</p>
+              <p className="font-heading text-lg leading-snug text-foreground flex-1">
+                "{t.quote}"
+              </p>
               <div className="mt-7 flex items-center gap-3">
                 <div className="h-11 w-11 rounded-full bg-primary text-accent flex items-center justify-center font-medium text-sm">
                   {t.initials}

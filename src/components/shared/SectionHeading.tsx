@@ -18,15 +18,21 @@ export function SectionHeading({ eyebrow, title, subtitle, align = "center", inv
       className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}
     >
       {eyebrow && (
-        <p className={`text-xs uppercase tracking-[0.2em] mb-4 ${invert ? "text-accent" : "text-accent"}`}>
+        <p
+          className={`text-xs uppercase tracking-[0.2em] mb-4 ${invert ? "text-accent" : "text-accent"}`}
+        >
           {eyebrow}
         </p>
       )}
-      <h2 className={`font-heading text-3xl sm:text-4xl md:text-5xl leading-[1.1] ${invert ? "text-background" : "text-foreground"}`}>
+      <h2
+        className={`font-heading text-3xl sm:text-4xl md:text-5xl leading-[1.1] ${invert ? "text-background" : "text-foreground"}`}
+      >
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-5 text-base md:text-lg ${invert ? "text-background/70" : "text-muted-foreground"}`}>
+        <p
+          className={`mt-5 text-base md:text-lg ${invert ? "text-background/70" : "text-muted-foreground"}`}
+        >
           {subtitle}
         </p>
       )}

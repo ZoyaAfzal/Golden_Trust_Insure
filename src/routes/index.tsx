@@ -12,7 +12,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Golden Trust Insure — Smart Coverage for Smarter Living" },
-      { name: "description", content: "Independent insurance brokers offering life, health, auto, home, business and travel coverage. Trusted by 15,000+ families since 2001." },
+      {
+        name: "description",
+        content:
+          "Independent insurance brokers offering life, health, auto, home, business and travel coverage. Trusted by 15,000+ families since 2001.",
+      },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],

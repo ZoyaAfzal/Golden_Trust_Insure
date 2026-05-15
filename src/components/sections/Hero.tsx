@@ -52,7 +52,16 @@ export function Hero() {
                 transition={{ delay: i * 0.08, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                 className="inline-block mr-[0.28em]"
               >
-                {word === "Coverage" ? <em className="not-italic font-normal italic text-accent" style={{ fontStyle: "italic" }}>{word}</em> : word}
+                {word === "Coverage" ? (
+                  <em
+                    className="not-italic font-normal italic text-accent"
+                    style={{ fontStyle: "italic" }}
+                  >
+                    {word}
+                  </em>
+                ) : (
+                  word
+                )}
               </motion.span>
             ))}
           </h1>
@@ -63,7 +72,8 @@ export function Hero() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="mt-6 max-w-xl text-base md:text-lg text-background/75 leading-relaxed"
           >
-            Independent brokers building coverage that protects families, homes, and the things you've worked hardest for — with the trust and clarity you deserve.
+            Independent brokers building coverage that protects families, homes, and the things
+            you've worked hardest for — with the trust and clarity you deserve.
           </motion.p>
 
           <motion.div
@@ -72,13 +82,23 @@ export function Hero() {
             transition={{ delay: 0.8, duration: 0.5 }}
             className="mt-9 flex flex-wrap gap-3"
           >
-            <Button asChild size="lg" className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 text-base">
-              <Link to="/contact">Get a Quote <ArrowRight className="ml-1 h-4 w-4" /></Link>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 text-base"
+            >
+              <Link to="/contact">
+                Get a Quote <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
             </Button>
-            
+
             <Dialog>
               <DialogTrigger asChild>
-                <Button size="lg" variant="outline" className="rounded-full bg-transparent border-background/40 text-background hover:bg-background/10 hover:text-background px-7 h-12 text-base cursor-pointer">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full bg-transparent border-background/40 text-background hover:bg-background/10 hover:text-background px-7 h-12 text-base cursor-pointer"
+                >
                   <Play className="mr-1 h-4 w-4 fill-current" /> Watch Video
                 </Button>
               </DialogTrigger>
@@ -108,7 +128,11 @@ export function Hero() {
           className="relative"
         >
           <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.4)]">
-            <img src={heroImage} alt="A family standing in front of their home" className="absolute inset-0 h-full w-full object-cover" />
+            <img
+              src={heroImage}
+              alt="A family standing in front of their home"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           </div>
 
           {/* floating card */}

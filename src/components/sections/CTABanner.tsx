@@ -19,17 +19,32 @@ export function CTABanner() {
       >
         <p className="text-xs uppercase tracking-[0.2em] text-accent mb-4">Get protected today</p>
         <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
-          Ready to protect what <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>matters most?</em>
+          Ready to protect what{" "}
+          <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+            matters most?
+          </em>
         </h2>
         <p className="mt-5 text-background/75 text-base md:text-lg max-w-xl mx-auto">
-          Get a free, no-obligation quote in minutes — or speak with an advisor who will walk you through every option.
+          Get a free, no-obligation quote in minutes — or speak with an advisor who will walk you
+          through every option.
         </p>
         <div className="mt-9 flex flex-wrap gap-3 justify-center">
-          <Button asChild size="lg" className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 text-base">
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 text-base"
+          >
             <Link to="/contact">Get your free quote →</Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="rounded-full bg-transparent border-background/40 text-background hover:bg-background/10 hover:text-background px-7 h-12 text-base">
-            <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`}><Phone className="mr-1 h-4 w-4" /> {BRAND.phone}</a>
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="rounded-full bg-transparent border-background/40 text-background hover:bg-background/10 hover:text-background px-7 h-12 text-base"
+          >
+            <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`}>
+              <Phone className="mr-1 h-4 w-4" /> {BRAND.phone}
+            </a>
           </Button>
         </div>
       </motion.div>

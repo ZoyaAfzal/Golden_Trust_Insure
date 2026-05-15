@@ -2,7 +2,12 @@ import { useEffect } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Check, X, Shield, Heart, Car, Home, Briefcase, Plane, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ServiceCard } from "@/components/shared/ServiceCard";
 import { services, type Service } from "@/lib/site-data";
@@ -16,27 +21,33 @@ export const Route = createFileRoute("/services/$slug")({
     return { service };
   },
   head: ({ loaderData }) => ({
-    meta: loaderData ? [
-      { title: `${loaderData.service.title} — Golden Trust Insure` },
-      { name: "description", content: loaderData.service.shortDesc },
-      { property: "og:title", content: `${loaderData.service.title} — Golden Trust Insure` },
-      { property: "og:description", content: loaderData.service.shortDesc },
-      { property: "og:type", content: "product" },
-      { property: "og:url", content: `/services/${loaderData.service.slug}` },
-    ] : [],
+    meta: loaderData
+      ? [
+          { title: `${loaderData.service.title} — Golden Trust Insure` },
+          { name: "description", content: loaderData.service.shortDesc },
+          { property: "og:title", content: `${loaderData.service.title} — Golden Trust Insure` },
+          { property: "og:description", content: loaderData.service.shortDesc },
+          { property: "og:type", content: "product" },
+          { property: "og:url", content: `/services/${loaderData.service.slug}` },
+        ]
+      : [],
     links: loaderData ? [{ rel: "canonical", href: `/services/${loaderData.service.slug}` }] : [],
-    scripts: loaderData ? [{
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: loaderData.service.faqs.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
-      }),
-    }] : [],
+    scripts: loaderData
+      ? [
+          {
+            type: "application/ld+json",
+            children: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: loaderData.service.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            }),
+          },
+        ]
+      : [],
   }),
   component: ServiceDetail,
 });
@@ -78,18 +89,29 @@ function ServiceDetail() {
         <div className="absolute -top-40 -right-20 h-[500px] w-[500px] rounded-full bg-accent/10 blur-3xl" />
         <div className="container-x relative">
           <p className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-            <Link to="/services" className="hover:text-background">Services</Link> / {service.title}
+            <Link to="/services" className="hover:text-background">
+              Services
+            </Link>{" "}
+            / {service.title}
           </p>
           <div className="grid lg:grid-cols-[2fr_1fr] gap-10 items-end">
             <div>
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-primary mb-6">
                 <Icon className="h-6 w-6" />
               </div>
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">{service.title}</h1>
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">
+                {service.title}
+              </h1>
               <p className="mt-6 text-background/75 max-w-2xl text-lg">{service.longDesc}</p>
             </div>
-            <Button asChild size="lg" className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 lg:w-fit lg:justify-self-end">
-              <Link to="/contact">Get a quote <ArrowRight className="ml-1 h-4 w-4" /></Link>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12 lg:w-fit lg:justify-self-end"
+            >
+              <Link to="/contact">
+                Get a quote <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>
@@ -102,7 +124,14 @@ function ServiceDetail() {
             <SectionHeading
               align="left"
               eyebrow="Coverage details"
-              title={<>What's <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>included</em></>}
+              title={
+                <>
+                  What's{" "}
+                  <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+                    included
+                  </em>
+                </>
+              }
             />
             <div className="mt-10 grid sm:grid-cols-2 gap-6">
               <div className="rounded-2xl bg-card border border-border p-6">
@@ -133,7 +162,14 @@ function ServiceDetail() {
               <SectionHeading
                 align="left"
                 eyebrow="FAQ"
-                title={<>Common <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>questions</em></>}
+                title={
+                  <>
+                    Common{" "}
+                    <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+                      questions
+                    </em>
+                  </>
+                }
               />
               <Accordion type="single" collapsible className="mt-8">
                 {service.faqs.map((f, i) => (
@@ -156,14 +192,20 @@ function ServiceDetail() {
               <p className="text-xs uppercase tracking-[0.2em] text-accent mb-3">Quick quote</p>
               <h3 className="font-heading text-2xl">Get covered in minutes</h3>
               <p className="mt-3 text-sm text-background/75">
-                Tell us a few details and an advisor will return a tailored quote within one business hour.
+                Tell us a few details and an advisor will return a tailored quote within one
+                business hour.
               </p>
               <ul className="mt-5 space-y-2 text-sm">
                 {["Free consultation", "No obligation", "40+ carriers"].map((t) => (
-                  <li key={t} className="flex gap-2 text-background/85"><Check className="h-4 w-4 text-accent" /> {t}</li>
+                  <li key={t} className="flex gap-2 text-background/85">
+                    <Check className="h-4 w-4 text-accent" /> {t}
+                  </li>
                 ))}
               </ul>
-              <Button asChild className="mt-6 w-full rounded-full bg-accent text-accent-foreground hover:bg-accent/90 h-11">
+              <Button
+                asChild
+                className="mt-6 w-full rounded-full bg-accent text-accent-foreground hover:bg-accent/90 h-11"
+              >
                 <Link to="/contact">Start my quote →</Link>
               </Button>
             </div>
@@ -175,10 +217,19 @@ function ServiceDetail() {
         <div className="container-x">
           <SectionHeading
             eyebrow="Explore more"
-            title={<>Related <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>coverage</em></>}
+            title={
+              <>
+                Related{" "}
+                <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+                  coverage
+                </em>
+              </>
+            }
           />
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((s, i) => <ServiceCard key={s.slug} service={s} index={i} />)}
+            {related.map((s, i) => (
+              <ServiceCard key={s.slug} service={s} index={i} />
+            ))}
           </div>
         </div>
       </section>

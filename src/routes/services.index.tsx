@@ -11,9 +11,16 @@ export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: "Insurance Services — Golden Trust Insure" },
-      { name: "description", content: "Life, health, auto, home, business and travel insurance — six lines of coverage tailored by independent brokers." },
+      {
+        name: "description",
+        content:
+          "Life, health, auto, home, business and travel insurance — six lines of coverage tailored by independent brokers.",
+      },
       { property: "og:title", content: "Insurance Services — Golden Trust Insure" },
-      { property: "og:description", content: "Six core lines of coverage, each tailored by an independent broker." },
+      {
+        property: "og:description",
+        content: "Six core lines of coverage, each tailored by an independent broker.",
+      },
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
@@ -22,11 +29,14 @@ export const Route = createFileRoute("/services/")({
 
 const filters = ["All", "Personal", "Family", "Business"] as const;
 const groupOf = (slug: string) =>
-  slug === "business-insurance" ? "Business" :
-  slug === "auto-insurance" || slug === "travel-insurance" ? "Personal" : "Family";
+  slug === "business-insurance"
+    ? "Business"
+    : slug === "auto-insurance" || slug === "travel-insurance"
+      ? "Personal"
+      : "Family";
 
 function ServicesPage() {
-  const [filter, setFilter] = useState<typeof filters[number]>("All");
+  const [filter, setFilter] = useState<(typeof filters)[number]>("All");
   const visible = services.filter((s) => filter === "All" || groupOf(s.slug) === filter);
 
   return (
@@ -34,13 +44,21 @@ function ServicesPage() {
       <section className="bg-primary text-background pt-36 pb-16 lg:pt-44 lg:pb-20">
         <div className="container-x">
           <p className="text-xs uppercase tracking-[0.2em] text-accent mb-4">
-            <Link to="/" className="hover:text-background">Home</Link> / Services
+            <Link to="/" className="hover:text-background">
+              Home
+            </Link>{" "}
+            / Services
           </p>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.05] max-w-3xl">
-            Coverage that meets <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>every season</em> of your life.
+            Coverage that meets{" "}
+            <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+              every season
+            </em>{" "}
+            of your life.
           </h1>
           <p className="mt-6 text-background/75 max-w-2xl text-lg">
-            Six core insurance lines, all available individually or bundled for premium savings. Each policy is shopped across forty-plus carriers to find the right fit.
+            Six core insurance lines, all available individually or bundled for premium savings.
+            Each policy is shopped across forty-plus carriers to find the right fit.
           </p>
         </div>
       </section>
@@ -64,7 +82,15 @@ function ServicesPage() {
           </div>
           <SectionHeading
             eyebrow="Browse all"
-            title={<>Find the <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>right</em> coverage</>}
+            title={
+              <>
+                Find the{" "}
+                <em className="text-accent not-italic" style={{ fontStyle: "italic" }}>
+                  right
+                </em>{" "}
+                coverage
+              </>
+            }
           />
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {visible.map((s, i) => (
@@ -72,7 +98,11 @@ function ServicesPage() {
             ))}
           </div>
           <div className="mt-16 text-center">
-            <Button asChild size="lg" className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-7 h-12"
+            >
               <Link to="/contact">Bundle & save — get a quote →</Link>
             </Button>
           </div>
