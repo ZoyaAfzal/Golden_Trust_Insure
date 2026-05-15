@@ -4,11 +4,9 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
+  ScrollRestoration,
 } from "@tanstack/react-router";
 
-import appCss from "../styles.css?url";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
@@ -71,44 +69,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Golden Trust Insure — Smart Coverage for Smarter Living" },
-      { name: "description", content: "Independent insurance brokers offering life, health, auto, home, business and travel coverage. Trusted by 15,000+ families since 2001." },
-      { property: "og:title", content: "Golden Trust Insure — Smart Coverage for Smarter Living" },
-      { property: "og:description", content: "Independent insurance brokers offering life, health, auto, home, business and travel coverage." },
-      { property: "og:site_name", content: "Golden Trust Insure" },
-      { property: "og:site_name", content: "TrustHarbor" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -121,6 +85,7 @@ function RootComponent() {
       </main>
       <Footer />
       <Toaster />
+      <ScrollRestoration />
     </QueryClientProvider>
   );
 }
